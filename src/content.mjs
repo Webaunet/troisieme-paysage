@@ -163,11 +163,11 @@ baie:{n:5,tags:'Site naturel, grand paysage, gestion de la fréquentation, prés
  m.gallery=g;m.secs.forEach(function(s,i){s.after=AFT[i]});m.sections=m.secs;FULL[k]=m})})();
 
 var TEAM=[
- ['Blandine Vareille','Paysagiste conceptrice · Designer urbain · Associée','Blandine.webp'],
- ['Coline Durand','Paysagiste conceptrice · Géographe','Coline.webp'],
- ['Damien Roidot','Paysagiste concepteur · Gérant fondateur','Damien.webp'],
- ['François Bosset','Paysagiste concepteur · Associé fondateur','Francois.webp'],
- ['Manon Evans','Paysagiste conceptrice · Géographe','Manon.webp']
+ ['Blandine Vareille','Paysagiste conceptrice · Designer urbain · Associée','img/equipe-blandine.jpg'],
+ ['Coline Durand','Paysagiste conceptrice · Géographe','img/equipe-coline.jpg'],
+ ['Damien Roidot','Paysagiste concepteur · Gérant fondateur','img/equipe-damien.jpg'],
+ ['François Bosset','Paysagiste concepteur · Associé fondateur','img/equipe-francois.jpg'],
+ ['Manon Evans','Paysagiste conceptrice · Géographe','img/equipe-manon.jpg']
 ];
 
 // helpers
@@ -198,7 +198,7 @@ V.accueil=function(){
    '<div><b>Premier paysage</b><p>Les dynamiques végétales laissées à leur libre développement.</p></div>'+
    '<div><b>Second paysage</b><p>L’aire industrielle : villes minérales, domestication du végétal, schéma automobile.</p></div>'+
    '<div><b>Troisième <em class="acc">paysage</em></b><p>La symbiose visée par l’Atelier : composer avec les usages sans dénaturer, en offrant à la nature un espace pour se développer.</p></div>'+
-  '</div><p style="margin-top:28px"><a class="btn ghost arrow" '+go('expertises')+'>Lire le concept</a></p></div></section>'+
+  '</div><p style="margin-top:28px"><a class="btn ghost arrow" '+go('concept')+'>Lire le concept</a></p></div></section>'+
 
   '<section class="rule"><div class="wrap split"><h2>L’Atelier est la somme de ceux qui le composent.</h2>'+
    '<div style="display:grid;gap:20px"><p class="lead">Des paysagistes concepteurs et des géographes, issus d’écoles et d’expériences différentes. Cette pluralité permet d’aborder chaque sujet par des regards multiples.</p>'+
@@ -275,7 +275,7 @@ V.fiche=function(id){
 V.agence=function(){
   return ''+
   '<div class="wrap page-head"><h1>L’Atelier est avant tout la somme de ceux qui le composent.</h1><p class="lead muted">Les paysagistes concepteurs et géographes de l’Atelier sont issus d’écoles, de formations et d’expériences différentes. Ensemble, ils forment la singularité et l’essence de Troisième Paysage.</p></div>'+
-  '<section style="padding-top:24px"><div class="wrap"><div class="team">'+TEAM.map(function(t,i){return '<div>'+ph('2024/06/'+t[2],'Portrait · '+t[0],{ratio:'3/4',t:(i%4)+1,alt:t[0]})+'<h3>'+t[0]+'</h3><p>'+t[1].split(' · ').join('<br>')+'</p></div>'}).join('')+'</div>'+
+  '<section style="padding-top:24px"><div class="wrap"><div class="team">'+TEAM.map(function(t,i){return '<div>'+ph(t[2],'Portrait · '+t[0],{ratio:'3/4',t:(i%4)+1,alt:t[0]})+'<h3>'+t[0]+'</h3><p>'+t[1].split(' · ').join('<br>')+'</p></div>'}).join('')+'</div>'+
    '<p class="muted" style="margin-top:36px;font-size:.88rem">Depuis 2012 : Adrien Defosse, Floriane Gormotte, Mazdak Rohani, Maxime Nauleau, Malena Houry.</p></div></section>'+
   '<section class="rule"><div class="wrap"><div class="split" style="margin-bottom:56px"><h2>Né d’une rencontre, d’une expérience et d’une envie.</h2><p class="lead">Cette pluralité permet d’approcher les sujets par des regards multiples. De nombreux échanges nourrissent chaque projet et amènent une approche unique.</p></div>'+
    '<div class="hist">'+
@@ -286,9 +286,9 @@ V.agence=function(){
    '<div class="after"><div><div class="y">2022</div><p>L’agence, historiquement basée à Paris, ouvre une antenne à Vendôme.</p></div><div><div class="y">2024</div><p>La plus ancienne salariée de l’agence devient associée.</p></div></div>'+
    '<p class="muted" style="margin-top:36px;max-width:64ch">Durant les premières années, l’Atelier a reçu le soutien de Michel Pena et de Loïc Pianfetti, en participant à des concours, des projets d’études et de maîtrise d’œuvre.</p></div></section>'+
   '<section class="rule"><div class="wrap"><h2 style="margin-bottom:40px">Retrouvez l’agence</h2><div class="sites">'+
-   '<div>'+ph('2024/06/agence-paris.jpg','Photo · L’agence de Paris',{t:4})+'<h3>Paris</h3><p class="muted">32 place Saint Georges, 75009 Paris<br>01 44 83 02 04</p></div>'+
-   '<div>'+ph('2025/05/Facade-Vendome-e1747839171528.jpg','Photo · L’antenne de Vendôme',{t:2})+'<h3>Vendôme</h3><p class="muted">Antenne ouverte en 2022.<br>Adresse non publiée sur le site actuel.</p></div></div>'+
-   '<p style="margin-top:40px"><a class="btn ghost arrow" '+go('expertises')+'>Le concept du troisième paysage</a></p></div></section>'+ contactBand();
+   '<div>'+ph('img/agence-paris.jpg','Photo · L’agence de Paris',{t:4})+'<h3>Paris</h3><p class="muted">32 place Saint Georges, 75009 Paris<br>01 44 83 02 04</p></div>'+
+   '<div>'+ph('img/agence-vendome.jpg','Photo · L’antenne de Vendôme',{t:2})+'<h3>Vendôme</h3><p class="muted">Antenne ouverte en 2022.<br>Adresse non publiée sur le site actuel.</p></div></div>'+
+   '<p style="margin-top:40px"><a class="btn ghost arrow" '+go('concept')+'>Le concept du troisième paysage</a></p></div></section>'+ contactBand();
 };
 
 V.expertises=function(){
@@ -298,13 +298,19 @@ V.expertises=function(){
      var im=e.img?P[e.img]:null;
      return '<article class="xp">'+(im?ph(im.img,'Photo · '+im.name,{t:im.t,alt:im.name}):ph(null,'Visuel à fournir par l’agence',{t:4}))+
       '<div class="t"><h2>'+e.h+'</h2><p>'+e.d+'</p><dl><dt>Types de missions</dt><dd>'+e.m+'</dd></dl>'+(e.pr.length?'<div><dl><dt style="margin-bottom:8px">Projets</dt></dl>'+chips(e.pr)+'</div>':'')+'</div></article>'}).join('')+'</div>'+
-  '<section class="rule"><div class="wrap"><div class="split"><div><p class="eyebrow" style="margin-bottom:16px">Le concept</p><h2>Premier, second, <em class="acc">troisième</em> paysage.</h2></div>'+
+  '<section class="rule"><div class="wrap"><div class="cta"><a class="btn arrow" '+go('projets')+'>Découvrir les projets</a><a class="btn ghost" '+go('concept')+'>Le concept du troisième paysage</a></div></div></section>'+ contactBand();
+};
+
+V.concept=function(){
+  return ''+
+  '<div class="wrap page-head"><h1>Le concept du <em class="acc">troisième</em> paysage</h1><p class="lead muted">Du protopaysage au troisième paysage : comment l’Atelier lit l’évolution des territoires.</p></div>'+
+  '<section style="padding-top:24px"><div class="wrap"><div class="split"><div><p class="eyebrow" style="margin-bottom:16px">Le concept</p><h2>Premier, second, <em class="acc">troisième</em> paysage.</h2></div>'+
    '<div style="display:grid;gap:18px;max-width:62ch"><p><b>Le premier paysage</b> regroupe les dynamiques naturelles végétales laissées à leur libre développement : un Éden révolu où l’homme n’aurait pas encore imposé sa marque.</p>'+
    '<p><b>Le second paysage</b> est celui de l’aire industrielle et de la volonté de l’homme moderne d’adapter son environnement à ses attentes : villes minérales, domestication végétale, schéma automobile global.</p>'+
    '<p><b>Le troisième paysage</b> est la symbiose vers laquelle tend l’Atelier : composer entre les attentes et les usages de la société, sans dénaturer les paysages, en offrant à la nature un espace d’expression. Travailler cet équilibre, c’est préserver les paysages et les milieux, œuvrer pour la biodiversité et augmenter la qualité de vie.</p>'+
    '<p class="muted">Conscient de la dualité entre dynamiques urbaines et rurales, l’Atelier accompagne cet équilibre en conservant les spécificités de chaque milieu.</p></div></div>'+
-   ph('2025/05/Frise-site-internet-FINALE-pour-site-web-scaled.jpg','Frise · Les trois paysages',{cls:'frise',t:3})+
-   '<p style="margin-top:40px"><a class="btn arrow" '+go('projets')+'>Découvrir les projets</a></p></div></section>'+ contactBand();
+   ph('img/frise-paysages.jpg','Frise · Les trois paysages',{cls:'frise-tall',ratio:'1188/2048',t:3,alt:'Frise illustrée : du protopaysage au premier, au second puis au troisième paysage, le long d’une rivière'})+
+   '<div class="cta" style="margin-top:40px"><a class="btn arrow" '+go('projets')+'>Découvrir les projets</a><a class="btn ghost" '+go('expertises')+'>Les expertises</a></div></div></section>'+ contactBand();
 };
 
 V.contact=function(){

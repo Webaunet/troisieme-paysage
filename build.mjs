@@ -6,15 +6,16 @@ const PAGES = [
   { key: 'accueil', file: 'index.html', title: 'Troisième Paysage', desc: 'Atelier de paysagistes concepteurs à Paris et Vendôme depuis 2012 : grand paysage, maîtrise d’œuvre urbaine et paysagère, renaturation, patrimoine.' },
   { key: 'projets', file: 'projets.html', title: 'Projets · Troisième Paysage', desc: 'Maîtrises d’œuvre et études de conception paysagère partout en France.' },
   { key: 'agence', file: 'agence.html', title: 'L’agence · Troisième Paysage', desc: 'L’équipe de paysagistes concepteurs et géographes, l’histoire de l’Atelier et ses implantations.' },
-  { key: 'expertises', file: 'expertises.html', title: 'Expertises · Troisième Paysage', desc: 'Les domaines de compétence de l’Atelier et le concept du troisième paysage.' },
+  { key: 'expertises', file: 'expertises.html', title: 'Expertises · Troisième Paysage', desc: 'Les domaines de compétence de l’Atelier, avec les projets qui les illustrent.' },
+  { key: 'concept', file: 'concept.html', title: 'Le concept · Troisième Paysage', desc: 'Du protopaysage au troisième paysage : la lecture de l’Atelier sur l’évolution des territoires.' },
   { key: 'contact', file: 'contact.html', title: 'Contact · Troisième Paysage', desc: 'Contacter l’Atelier Troisième Paysage : e-mail, téléphone, adresse à Paris.' }
 ];
 
 function shell(root, current, title, desc, content) {
   setRoot(root);
-  const nav = [['projets', 'Projets'], ['agence', 'Agence'], ['expertises', 'Expertises'], ['contact', 'Contact']]
+  const nav = [['projets', 'Projets'], ['agence', 'Agence'], ['expertises', 'Expertises'], ['concept', 'Concept'], ['contact', 'Contact']]
     .map(([k, l]) => `<a href="${href(k)}"${k === current ? ' aria-current="page"' : ''}${k === 'contact' ? ' class="cta-nav"' : ''}>${l}</a>`).join('\n      ');
-  const foot = [['projets', 'Projets'], ['agence', 'Agence'], ['expertises', 'Expertises'], ['contact', 'Contact']]
+  const foot = [['projets', 'Projets'], ['agence', 'Agence'], ['expertises', 'Expertises'], ['concept', 'Concept'], ['contact', 'Contact']]
     .map(([k, l]) => `<a href="${href(k)}">${l}</a>`).join('');
   return `<!doctype html>
 <html lang="fr">
