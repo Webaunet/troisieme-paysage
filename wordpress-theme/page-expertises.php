@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Expertises
- * Domaines de compétence et concept ; le contenu de la page sert de texte du concept.
+ * Domaines de compétence, alimentés par le type de contenu « Expertises ».
  */
 if (!defined('ABSPATH')) exit;
 get_header();
@@ -26,12 +26,6 @@ $expertises = get_posts(array('post_type' => 'expertise', 'posts_per_page' => 20
 		</article>
 	<?php endforeach; ?>
 </div>
-<?php if (have_posts()) : while (have_posts()) : the_post(); if (trim(get_the_content())) : ?>
-<section class="rule"><div class="wrap">
-	<div class="split"><div><p class="eyebrow" style="margin-bottom:16px">Le concept</p><h2>Premier, second, <em class="acc">troisième</em> paysage.</h2></div>
-		<div style="display:grid;gap:18px;max-width:62ch"><?php the_content(); ?></div></div>
-	<p style="margin-top:40px"><a class="btn arrow" href="<?php echo esc_url(tp_url('projets')); ?>">Découvrir les projets</a></p>
-</div></section>
-<?php endif; endwhile; endif; ?>
+<section class="rule"><div class="wrap"><div class="cta"><a class="btn arrow" href="<?php echo esc_url(tp_url('projets')); ?>">Découvrir les projets</a><a class="btn ghost" href="<?php echo esc_url(tp_url('concept')); ?>">Le concept du troisième paysage</a></div></div></section>
 <?php get_template_part('template-parts/contact-band'); ?>
 <?php get_footer(); ?>

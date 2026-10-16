@@ -24,7 +24,10 @@ function tp_url($slug) {
 }
 
 /** Emplacement tonal ou image, au bon ratio. */
-function tp_figure($attachment_id, $label, $tone = 1, $ratio = '', $size = 'large') {
+function tp_figure($attachment_id, $label, $tone = 1, $ratio = '', $size = 'large', $fallback = '') {
+	if (!$attachment_id && $fallback && file_exists(get_template_directory() . '/assets/seed/img/' . $fallback)) {
+		return '<figure class="ph" data-t="' . (int) $tone . '" style="aspect-ratio:' . esc_attr($ratio ? $ratio : '4/3') . '"><img src="' . esc_url(get_template_directory_uri() . '/assets/seed/img/' . $fallback) . '" alt="' . esc_attr($label) . '" loading="lazy" decoding="async"></figure>';
+	}
 	if ($attachment_id) {
 		if (!$ratio) {
 			$m = wp_get_attachment_metadata($attachment_id);
@@ -71,7 +74,7 @@ function tp_projects_for_domaine($slug, $limit = 3) {
 
 /** Menu de repli tant qu’aucun menu n’est affecté. */
 function tp_fallback_menu() {
-	$items = array('projets' => 'Projets', 'agence' => 'Agence', 'expertises' => 'Expertises', 'contact' => 'Contact');
+	$items = array('projets' => 'Projets', 'agence' => 'Agence', 'expertises' => 'Expertises', 'concept' => 'Concept', 'contact' => 'Contact');
 	echo '<ul class="menu">';
 	foreach ($items as $slug => $label) {
 		echo '<li' . ($slug === 'contact' ? ' class="cta-nav"' : '') . '><a href="' . esc_url(tp_url($slug)) . '">' . esc_html($label) . '</a></li>';

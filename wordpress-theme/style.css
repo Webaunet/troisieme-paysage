@@ -261,3 +261,6 @@ nav.main .cta-nav>a:hover{background:var(--fg);color:var(--bg)}
 @media (max-width:760px){.fiche-content{grid-template-columns:1fr}.fiche-content>*,.fiche-content>h2{grid-column:1}}
 .page-prose{padding-block:clamp(40px,6vw,88px);display:grid;gap:18px;max-width:68ch}
 .fbtn{text-decoration:none}
+
+.frise-tall{max-width:640px;margin:56px auto 0}
+.frise-tall img{object-fit:contain}

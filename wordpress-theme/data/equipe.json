@@ -2,26 +2,31 @@
  {
   "nom": "Blandine Vareille",
   "fonction": "Paysagiste conceptrice\nDesigner urbain\nAssociée",
-  "order": 0
+  "order": 0,
+  "image": "equipe-blandine.jpg"
  },
  {
   "nom": "Coline Durand",
   "fonction": "Paysagiste conceptrice\nGéographe",
-  "order": 1
+  "order": 1,
+  "image": "equipe-coline.jpg"
  },
  {
   "nom": "Damien Roidot",
   "fonction": "Paysagiste concepteur\nGérant fondateur",
-  "order": 2
+  "order": 2,
+  "image": "equipe-damien.jpg"
  },
  {
   "nom": "François Bosset",
   "fonction": "Paysagiste concepteur\nAssocié fondateur",
-  "order": 3
+  "order": 3,
+  "image": "equipe-francois.jpg"
  },
  {
   "nom": "Manon Evans",
   "fonction": "Paysagiste conceptrice\nGéographe",
-  "order": 4
+  "order": 4,
+  "image": "equipe-manon.jpg"
  }
 ]

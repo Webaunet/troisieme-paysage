@@ -32,7 +32,7 @@ $expertises = get_posts(array('post_type' => 'expertise', 'posts_per_page' => 12
 			<div><b><?php echo esc_html(tp_opt("concept_{$i}_t")); ?></b><p><?php echo esc_html(tp_opt("concept_{$i}_d")); ?></p></div>
 		<?php endfor; ?>
 	</div>
-	<p style="margin-top:28px"><a class="btn ghost arrow" href="<?php echo esc_url(tp_url('expertises')); ?>">Lire le concept</a></p>
+	<p style="margin-top:28px"><a class="btn ghost arrow" href="<?php echo esc_url(tp_url('concept')); ?>">Lire le concept</a></p>
 </div></section>
 
 <section class="rule"><div class="wrap split">

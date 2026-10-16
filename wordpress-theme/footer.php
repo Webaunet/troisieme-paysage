@@ -7,6 +7,7 @@
 			<a href="<?php echo esc_url(tp_url('projets')); ?>">Projets</a>
 			<a href="<?php echo esc_url(tp_url('agence')); ?>">Agence</a>
 			<a href="<?php echo esc_url(tp_url('expertises')); ?>">Expertises</a>
+			<a href="<?php echo esc_url(tp_url('concept')); ?>">Concept</a>
 			<a href="<?php echo esc_url(tp_url('contact')); ?>">Contact</a>
 		</div>
 		<div class="col"><span class="lbl">Contact</span>

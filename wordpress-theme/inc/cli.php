@@ -75,7 +75,13 @@ class TP_CLI_Command {
 
 		foreach ($this->read('equipe.json') as $m) {
 			$id = $this->upsert('membre', sanitize_title($m['nom']), array('post_title' => $m['nom'], 'menu_order' => (int) $m['order']));
-			if ($id && !is_wp_error($id)) update_post_meta($id, 'tp_fonction', $m['fonction']);
+			if ($id && !is_wp_error($id)) {
+				update_post_meta($id, 'tp_fonction', $m['fonction']);
+				if (!empty($m['image']) && !has_post_thumbnail($id)) {
+					$att = $this->sideload($m['image'], $id, $m['nom']);
+					if ($att) set_post_thumbnail($id, $att);
+				}
+			}
 		}
 		foreach ($this->read('expertises.json') as $e) {
 			$id = $this->upsert('expertise', sanitize_title($e['title']), array('post_title' => $e['title'], 'post_excerpt' => $e['excerpt'], 'menu_order' => (int) $e['order']));
@@ -99,8 +105,15 @@ class TP_CLI_Command {
 			. '<!-- wp:paragraph --><p><strong>Le second paysage</strong> est celui de l’aire industrielle et de la volonté de l’homme moderne d’adapter son environnement à ses attentes : villes minérales, domestication végétale, schéma automobile global.</p><!-- /wp:paragraph -->'
 			. '<!-- wp:paragraph --><p><strong>Le troisième paysage</strong> est la symbiose vers laquelle tend l’Atelier : composer entre les attentes et les usages de la société, sans dénaturer les paysages, en offrant à la nature un espace d’expression. Travailler cet équilibre, c’est préserver les paysages et les milieux, œuvrer pour la biodiversité et augmenter la qualité de vie.</p><!-- /wp:paragraph -->'
 			. '<!-- wp:paragraph --><p>Conscient de la dualité entre dynamiques urbaines et rurales, l’Atelier accompagne cet équilibre en conservant les spécificités de chaque milieu.</p><!-- /wp:paragraph -->';
-		$exp = $this->upsert('page', 'expertises', array('post_title' => 'Ce que l’Atelier prend en charge', 'post_content' => $concept));
+		$exp = $this->upsert('page', 'expertises', array('post_title' => 'Ce que l’Atelier prend en charge', 'post_content' => ''));
 		update_post_meta($exp, '_wp_page_template', 'page-expertises.php');
+
+		$cpt = $this->upsert('page', 'concept', array('post_title' => 'Le concept du troisième paysage', 'post_content' => $concept));
+		update_post_meta($cpt, '_wp_page_template', 'page-concept.php');
+		if (!has_post_thumbnail($cpt)) {
+			$att = $this->sideload('frise-paysages.jpg', $cpt, 'Frise illustrée des trois paysages');
+			if ($att) set_post_thumbnail($cpt, $att);
+		}
 
 		$contact = $this->upsert('page', 'contact', array('post_title' => 'Contact', 'post_content' => ''));
 		update_post_meta($contact, '_wp_page_template', 'page-contact.php');
@@ -114,7 +127,7 @@ class TP_CLI_Command {
 		$menu_id = $menu ? $menu->term_id : wp_create_nav_menu('Menu principal');
 		if (!is_wp_error($menu_id) && !wp_get_nav_menu_items($menu_id)) {
 			wp_update_nav_menu_item($menu_id, 0, array('menu-item-title' => 'Projets', 'menu-item-url' => get_post_type_archive_link('projet'), 'menu-item-type' => 'custom', 'menu-item-status' => 'publish'));
-			foreach (array($agence => 'Agence', $exp => 'Expertises', $contact => 'Contact') as $pid => $label) {
+			foreach (array($agence => 'Agence', $exp => 'Expertises', $cpt => 'Concept', $contact => 'Contact') as $pid => $label) {
 				wp_update_nav_menu_item($menu_id, 0, array('menu-item-title' => $label, 'menu-item-object' => 'page', 'menu-item-object-id' => $pid, 'menu-item-type' => 'post_type', 'menu-item-status' => 'publish', 'menu-item-classes' => $label === 'Contact' ? 'cta-nav' : ''));
 			}
 		}
