@@ -1,0 +1,27 @@
+[
+ {
+  "nom": "Blandine Vareille",
+  "fonction": "Paysagiste conceptrice\nDesigner urbain\nAssociée",
+  "order": 0
+ },
+ {
+  "nom": "Coline Durand",
+  "fonction": "Paysagiste conceptrice\nGéographe",
+  "order": 1
+ },
+ {
+  "nom": "Damien Roidot",
+  "fonction": "Paysagiste concepteur\nGérant fondateur",
+  "order": 2
+ },
+ {
+  "nom": "François Bosset",
+  "fonction": "Paysagiste concepteur\nAssocié fondateur",
+  "order": 3
+ },
+ {
+  "nom": "Manon Evans",
+  "fonction": "Paysagiste conceptrice\nGéographe",
+  "order": 4
+ }
+]
