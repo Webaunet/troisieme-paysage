@@ -1,0 +1,56 @@
+[
+ {
+  "title": "Grand Paysage",
+  "excerpt": "Explorer un territoire à grande échelle : évolution des paysages, stratégie d’accueil, sites remarquables.",
+  "missions": "Études",
+  "domaine": "grand-paysage",
+  "domaine_nom": "Grand paysage",
+  "image": "caps.jpg",
+  "order": 0
+ },
+ {
+  "title": "Maîtrise d’œuvre urbaine et paysagère",
+  "excerpt": "Concevoir et suivre la réalisation d’espaces publics : squares, places, parvis, voies douces, cours d’école.",
+  "missions": "Maîtrise d’œuvre",
+  "domaine": "maitrise-doeuvre-urbaine-et-paysagere",
+  "domaine_nom": "Maîtrise d’œuvre urbaine et paysagère",
+  "image": "puteaux.jpg",
+  "order": 1
+ },
+ {
+  "title": "Renaturation",
+  "excerpt": "Reconquérir des friches industrielles en s’appuyant sur les dynamiques végétales en place, avec une gestion pensée sur plusieurs dizaines d’années.",
+  "missions": "Études, maîtrise d’œuvre",
+  "domaine": "renaturation",
+  "domaine_nom": "Renaturation",
+  "image": "fibres.jpg",
+  "order": 2
+ },
+ {
+  "title": "Préservation et valorisation patrimoniale",
+  "excerpt": "Révéler et ouvrir au public des abbayes, châteaux et domaines.",
+  "missions": "Études",
+  "domaine": "patrimoine",
+  "domaine_nom": "Préservation et valorisation patrimoniale",
+  "image": "randan.jpg",
+  "order": 3
+ },
+ {
+  "title": "Gestion d’espaces naturels sensibles",
+  "excerpt": "Domaine de compétence cité par l’Atelier. Description détaillée et références à fournir par l’agence.",
+  "missions": "",
+  "domaine": "espaces-naturels-sensibles",
+  "domaine_nom": "Gestion d’espaces naturels sensibles",
+  "image": "",
+  "order": 4
+ },
+ {
+  "title": "Accompagnement architectural",
+  "excerpt": "Domaine de compétence cité par l’Atelier. Description détaillée et références à fournir par l’agence.",
+  "missions": "",
+  "domaine": "accompagnement-architectural",
+  "domaine_nom": "Accompagnement architectural",
+  "image": "",
+  "order": 5
+ }
+]
