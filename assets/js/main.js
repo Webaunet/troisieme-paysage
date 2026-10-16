@@ -50,6 +50,39 @@
     });
   });
 
+  /* Formulaire de contact : validation, puis envoi vers le service configuré (data-endpoint) ou ouverture du client mail. */
+  var cf = document.getElementById('cform');
+  if (cf) {
+    var st = document.getElementById('cform-status');
+    var say = function (t, bad) { st.hidden = false; st.textContent = t; st.classList.toggle('is-error', !!bad); };
+    var msgs = { nom: 'Indiquez votre nom.', email: 'Indiquez une adresse e-mail valide.', message: 'Écrivez votre message.', consent: 'Merci de cocher cette case pour envoyer le message.' };
+    cf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = cf.elements, ok = true, first = null;
+      ['nom', 'email', 'message', 'consent'].forEach(function (k) {
+        var el = f[k], bad = k === 'consent' ? !el.checked : k === 'email' ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : !el.value.trim();
+        var out = cf.querySelector('[data-err="' + k + '"]');
+        el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+        if (out) out.textContent = bad ? msgs[k] : '';
+        if (bad) { ok = false; first = first || el; }
+      });
+      if (!ok) { first.focus(); return; }
+      if (f.website.value) return;
+      var data = { nature: f.nature.value, nom: f.nom.value.trim(), email: f.email.value.trim(), structure: f.structure.value.trim(), tel: f.tel.value.trim(), message: f.message.value.trim() };
+      var ep = cf.dataset.endpoint;
+      if (ep) {
+        say('Envoi en cours…');
+        fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) { if (!r.ok) throw 0; cf.reset(); say('Merci, votre message est bien parti. L’Atelier vous répondra rapidement.'); })
+          .catch(function () { say('L’envoi a échoué. Écrivez-nous directement à ' + cf.dataset.to + '.', true); });
+      } else {
+        var body = data.message + '\n\n— ' + data.nom + (data.structure ? ', ' + data.structure : '') + (data.tel ? '\nTéléphone : ' + data.tel : '') + '\nE-mail : ' + data.email;
+        window.location.href = 'mailto:' + cf.dataset.to + '?subject=' + encodeURIComponent('Demande : ' + data.nature) + '&body=' + encodeURIComponent(body);
+        say('Votre messagerie s’ouvre avec le message prêt à envoyer. Sinon, copiez l’adresse ' + cf.dataset.to + '.');
+      }
+    });
+  }
+
   document.addEventListener('error', function (e) {
     if (e.target && e.target.tagName === 'IMG') e.target.remove();
   }, true);
