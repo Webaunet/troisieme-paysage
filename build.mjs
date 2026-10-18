@@ -33,7 +33,7 @@ function shell(root, current, title, desc, content) {
 <div class="ribbon">Maquette de proposition de refonte · contenus issus de troisieme-paysage.fr</div>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="${href('accueil')}" aria-label="Troisième Paysage, accueil"><b>Troisième Paysage</b><span>Atelier de paysagistes · Paris · Vendôme</span></a>
+    <a class="brand" href="${href('accueil')}" aria-label="Troisième Paysage, accueil"><img src="${root}assets/img/logo.png" alt="Troisième Paysage, paysagiste concepteur" width="150" height="66"></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="main" id="nav" aria-label="Navigation principale">
       ${nav}
